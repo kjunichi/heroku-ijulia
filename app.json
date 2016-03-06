@@ -1,0 +1,5 @@
+{
+  "name": "docker-heroku-ijulia",
+  "description": "jupyter app.json for heroku-docker",
+  "image": "heroku/cedar:14"
+}
