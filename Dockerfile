@@ -28,8 +28,8 @@ find /app/julia/lib -type f \
 
 ENV PATH $PATH:/app/julia/bin
 ENV HOME /app
-RUN cp /usr/lib/x86_64-linux-gnu/libnettle.so.4 /app/julia/lib && \
-#rm /usr/lib/x86_64-linux-gnu/libnettle.so.4 && \
+RUN cp /usr/lib/x86_64-linux-gnu/libnettle.so* /app/julia/lib && \
+#rm /usr/lib/x86_64-linux-gnu/libnettle.so && \
 export LD_LIBRARY_PATH=/app/.heroku/julia/lib && \
 julia -e 'Pkg.add("IJulia")' && \
 find /app/.julia/v0.4/Conda/deps/usr/bin/ -type f \
@@ -40,11 +40,11 @@ mkdir -p /app/.jupyter/kernels && \
 cp -r /app/.julia/v0.4/IJulia/deps/julia-0.4/ /app/.jupyter/kernels
 
 #RUN echo "import Conda; Conda.SCRIPTDIR"|julia
-RUN perl -pi -e 's#/usr/lib/x86_64-linux-gnu/libnettle.so.4#/app/julia/lib/libnettle.so.4#g' \
+RUN perl -pi -e 's#/usr/lib/x86_64-linux-gnu/libnettle.so#/app/julia/lib/libnettle.so#g' \
     /app/.julia/v0.4/Nettle/deps/deps.jl && \
 (cd /app/.julia;tar zcf v0.4.tgz v0.4) && \
 rm -rf /app/.julia/v0.4
 
-ADD ./start_jupyter /app/user/
+COPY ./start_jupyter /app/user/
 ADD ./jupyterconfig.py /app/user/
 ENV LD_LIBRARY_PATH /app/.heroku/julia/lib
