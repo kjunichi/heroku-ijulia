@@ -1,4 +1,4 @@
-export PATH=/app/.julia/v0.4/Conda/deps/usr/bin:/app/.heroku/julia/bin:$PATH
+export PATH=/app/.julia/v0.4/Conda/deps/usr/bin:/app/julia/bin:$PATH
 cd /app/.julia && tar xf v0.4.tgz && rm v0.4.tgz && rm v0.4/.cache && \
 ln /app/.julia/.cache /app/.julia/v0.4/.cache
 #mv /app/.julia/v0.4/METADATA/git /app/.julia/v0.4/METADATA/.git
