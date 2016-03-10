@@ -3,5 +3,5 @@ cd /app/.julia && tar xf v0.4.tgz && rm v0.4.tgz && rm v0.4/.cache && \
 ln /app/.julia/.cache /app/.julia/v0.4/.cache
 #mv /app/.julia/v0.4/METADATA/git /app/.julia/v0.4/METADATA/.git
 /app/.julia/v0.4/Conda/deps/usr/bin/jupyter-notebook \
-	--no-browser --no-mathjax --ip=* --port $PORT \
+	--no-browser --ip=* --port $PORT \
 	--config=jupyterconfig.py

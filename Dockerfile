@@ -47,4 +47,4 @@ rm -rf /app/.julia/v0.4
 
 COPY ./start_jupyter /app/user/
 ADD ./jupyterconfig.py /app/user/
-ENV LD_LIBRARY_PATH /app/.heroku/julia/lib
+ENV LD_LIBRARY_PATH /app/julia/lib
