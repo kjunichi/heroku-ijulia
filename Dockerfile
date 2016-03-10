@@ -46,5 +46,6 @@ RUN perl -pi -e 's#/usr/lib/x86_64-linux-gnu/libnettle.so#/app/julia/lib/libnett
 rm -rf /app/.julia/v0.4
 
 COPY ./start_jupyter /app/user/
-ADD ./jupyterconfig.py /app/user/
+COPY ./InitJulia.ipynb /app/user/
+COPY ./jupyterconfig.py /app/user/
 ENV LD_LIBRARY_PATH /app/julia/lib
