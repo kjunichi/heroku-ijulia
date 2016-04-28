@@ -16,11 +16,11 @@ WORKDIR /app/user
 COPY ./init /usr/bin/init
 
 # install Julia
-RUN wget https://julialang.s3.amazonaws.com/bin/linux/x64/0.4/julia-0.4.3-linux-x86_64.tar.gz && \
+RUN wget https://julialang.s3.amazonaws.com/bin/linux/x64/0.4/julia-0.4.5-linux-x86_64.tar.gz && \
 mkdir -p /app && \
-tar xvf julia-0.4.3-linux-x86_64.tar.gz -C /app && \
-ln -s /app/julia-a2f713dea5 /app/julia && \
-rm julia-0.4.3-linux-x86_64.tar.gz && \
+tar xvf julia-0.4.5-linux-x86_64.tar.gz -C /app && \
+ln -s julia-2ac304dfba /app/julia && \
+rm julia-0.4.5-linux-x86_64.tar.gz && \
 find /app/julia/bin -type f \
   -exec strip --strip-all '{}' ';' && \
 find /app/julia/lib -type f \
